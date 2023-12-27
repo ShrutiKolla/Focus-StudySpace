@@ -1,11 +1,17 @@
 import React from "react"
-import Navbar from "./assets/Components/Navbar/Navbar";
+import Navbar from "./Components/Navbar/Navbar";
+import Clock from "./Components/Clock/Clock";
 
 const App = () => {
   return (
-    <main>
-      <Navbar />
-    </main>
+    <div className="fullPage">
+      <header>
+        <Navbar />
+      </header>
+      <main>
+        <Clock />
+      </main>
+    </div>
   )
 }
 

@@ -1,8 +1,26 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    border: 1px lawngreen solid;
-  }
-  body {
-    background-color: rgb(237, 237, 224);
-  }
+  box-sizing: border-box;
+  margin: 0;
+  /* border: 1px lawngreen solid; */
+}
+
+.fullPage {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  align-items: center;
+}
+
+main {
+  width: 80%;
+}
+
+header {
+  width: 100%;
+}
+
+body {
+  /* background-color: rgb(237, 237, 224); */
+  background: url('https://c4.wallpaperflare.com/wallpaper/600/919/630/digital-art-illustration-lofi-hd-wallpaper-preview.jpg');
+  background-size: cover;
+}
