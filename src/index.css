@@ -4,23 +4,62 @@
   /* border: 1px lawngreen solid; */
 }
 
+body {
+  background: url('https://assets-global.website-files.com/60babc2f4a97cece9858d8e7/6319040a3f317243c1246551_hq720.jpeg');
+  background-size: cover;
+}
+
 .fullPage {
   display: flex;
   flex-direction: column;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   align-items: center;
+  height: 100vh;
 }
 
 main {
+  display: flex;
   width: 80%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
 }
 
 header {
   width: 100%;
 }
 
-body {
-  /* background-color: rgb(237, 237, 224); */
-  background: url('https://c4.wallpaperflare.com/wallpaper/600/919/630/digital-art-illustration-lofi-hd-wallpaper-preview.jpg');
+.tasks {
+  color: #af7e8f;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 1.8rem;
+  padding: 3rem;
+  width: 45%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.tasks>.head {
+  color: #fff;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  background: url('./assets/YourTask.png');
   background-size: cover;
+  position:absolute;
+  top:-15%;
+  left: 5%;
+  font-size: 100%;
+  z-index: 2;
+  padding: 2.6% 5.5% 5.5% 5.5%;
+  margin: 3% 0;
+  width: 50%;
+}
+
+.addForm {
+  display: none;
 }

@@ -1,8 +1,8 @@
 .clock_bg {
-    background-color: rgba(0, 0, 0, 0.7);
-    height: 200px;
-    max-width:35%;
-    border-radius: 30px;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 350px;
+    height: 300px;
+    border-radius: 1.8rem;
     display: flex;
     padding: 4%;
     justify-content: space-between;
@@ -11,13 +11,14 @@
 }
 .container {
     display: flex;
+    gap: 5px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 12px;
+    font-size: 0.8rem;
 }
 .gray {
-    color: #404549;
+    color: #af7e8f;
 }
 
 .separator {
@@ -29,7 +30,7 @@
     gap: 2px;
 }
 .digit {
-    background-color: #404549;
+    background-color: #af7e8f80;
     width: 30px;
     height: 55px;
     border-radius: 3px;
