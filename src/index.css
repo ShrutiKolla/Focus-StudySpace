@@ -25,7 +25,7 @@ main {
   justify-content: space-between;
 }
 
-header {
+header, footer {
   width: 100%;
 }
 

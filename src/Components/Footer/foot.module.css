@@ -1,0 +1,20 @@
+.footerDiv {
+    display: flex;
+    align-items: center;
+    padding: 2rem 3rem;
+    color: #fff;
+    margin-top: auto;
+}
+
+.player {
+    margin-left: auto;
+    display: flex;
+    gap:2rem;
+    width: 35%;
+    justify-content: center;
+}
+
+.author {
+    font-style: italic;
+    margin-left: auto;
+} 

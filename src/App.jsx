@@ -1,21 +1,10 @@
 import React, { useState, useRef } from "react"
 import Navbar from "./Components/Navbar/Navbar";
+import Footer from "./Components/Footer/Footer";
 import Clock from "./Components/Clock/Clock";
 import Task from "./Components/Tasks/Task";
 const App = () => {
 
-  const data = [{
-    task: "natural language processing",
-    hrs: "",
-    mins: "23",
-    secs: "10"
-  },
-  {
-    task: "database management system",
-    hrs: "1",
-    mins: "23",
-    secs: "10"
-  }]
   const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")) || [])
   const [newTask, setNewTask] = useState({ task: '', hrs: 0, mins: 0, secs: 0 })
   const inpRef = useRef()
@@ -98,6 +87,9 @@ const App = () => {
           }
         </div>
       </main>
+      <footer>
+        <Footer/>
+      </footer>
     </div>
   )
 }

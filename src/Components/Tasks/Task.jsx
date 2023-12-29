@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import taskCss from './task.module.css'
 import cross from '../../assets/cross.svg'
-import TaskPage from '../TaskPage/TaskPage'
+import TaskPage from '../FocusPage/FocusPage'
 
 const Task = ({ task, id, hrs, mins, secs, deleteTask }) => {
 

@@ -1,0 +1,7 @@
+.focusDiv {
+    background: url("https://backiee.com/static/wpdb/wallpapers/v2/1000x563/377128.jpg");
+    height: 100%;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
