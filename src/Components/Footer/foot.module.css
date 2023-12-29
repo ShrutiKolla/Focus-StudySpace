@@ -18,3 +18,8 @@
     font-style: italic;
     margin-left: auto;
 } 
+
+button {
+    background: transparent;
+    border: none;
+}

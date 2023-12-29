@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import footerCss from './foot.module.css'
 
+import play from '../../assets/play.svg'
+import prev from '../../assets/prev.svg'
+import next from '../../assets/next.svg'
+import pause from '../../assets/pause.svg'
+
 const Footer = ({ focus }) => {
+
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  function handlePlay() {
+    setIsPlaying(prev => !prev)
+  }
   return (
     <div className={footerCss.footerDiv}>
       {focus &&
@@ -9,9 +20,13 @@ const Footer = ({ focus }) => {
       }
       {focus &&
         <div className={footerCss.player}>
-          <div className={footerCss.prev}>prev</div>
-          <div className={footerCss.play}>play</div>
-          <div className={footerCss.next}>next</div>
+          <button className={footerCss.prev}><img src={prev} alt="" /></button>
+          {isPlaying ?
+            <button onClick={handlePlay} className={footerCss.play}><img src={play} alt="" /></button>
+            :
+            <button onClick={handlePlay} className={footerCss.play}><img src={pause} alt="" /></button>
+          }
+          <button className={footerCss.next}><img src={next} alt="" /></button>
         </div>
       }
       <p className={footerCss.author}>Made By: Shruti Kolla</p>

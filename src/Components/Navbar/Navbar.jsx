@@ -1,6 +1,6 @@
 import React from 'react'
 import navCss from './nav.module.css'
-import cross from '../../assets/cross.svg'
+import close from '../../assets/close.svg'
 
 const Navbar = ({ focus, setShowModal, setShowStart }) => {
   return (
@@ -9,7 +9,7 @@ const Navbar = ({ focus, setShowModal, setShowStart }) => {
         <li className={navCss.left}>Focus</li>
         <li className={navCss.right}>Github</li>
         {focus &&
-          <img className={navCss.cross} src={cross} onClick={() => { setShowModal(false); setShowStart(false) }} alt="" />
+          <img className={navCss.cross} src={close} onClick={() => { setShowModal(false); setShowStart(false) }} alt="" />
         }
       </ul>
     </nav>
