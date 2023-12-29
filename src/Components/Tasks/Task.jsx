@@ -23,7 +23,7 @@ const Task = ({ task, id, hrs, mins, secs, deleteTask }) => {
                     onClick={handleStart}
                     className={taskCss.id}
                 >{showStart ? 'Start' : id + 1}</div>
-                <p>{task}</p>
+                <p className={taskCss.name}>{task}</p>
             </div>
             <div className={taskCss.delete} onClick={() => deleteTask(id)} ><img src={cross} alt="" /></div>
             {showModal && <div className={`${taskCss.myModal} ${showStart ? taskCss.start : taskCss.id}`}><TaskPage

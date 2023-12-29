@@ -12,7 +12,7 @@
     gap: 8%;
     width: 100%;
 }
-.single_task p {
+.single_task .name {
     transition: text-shadow 0.3s ease;
 }
 .id {
@@ -41,7 +41,7 @@
     height: 100%;
 }
 
-.single_task:hover p {
+.single_task:hover .name {
     text-shadow: 0px 0px 30px #f8f6f7;
 }
 

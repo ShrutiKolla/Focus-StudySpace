@@ -4,6 +4,8 @@
     padding: 2rem 3rem;
     color: #fff;
     margin-top: auto;
+    width: 100%;
+    max-height: 17%;
 }
 
 .player {

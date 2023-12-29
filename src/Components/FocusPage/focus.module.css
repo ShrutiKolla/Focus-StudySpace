@@ -1,7 +1,128 @@
 .focusDiv {
-    background: url("https://backiee.com/static/wpdb/wallpapers/v2/1000x563/377128.jpg");
+    /* background: url("https://backiee.com/static/wpdb/wallpapers/v2/1000x563/377128.jpg"); */
+    /* background: url('../../assets/dreamcatcher1.gif'); */
+    /* background: url('../../assets/dreamcatcher.gif'); */
+    /* background: url('../../assets/fantasy.gif'); */
+    /* background: url('../../assets/crescent.gif'); */
+    /* background: url('../../assets/rainy-road.gif'); */
+    /* background: url('../../assets/street.gif'); */
+    /* background: url('../../assets/rain.gif'); */
+    
+    /* background: url('../../assets/sakura.gif'); */
+    background: url('../../assets/mushroom.gif');
+    /* background: url('../../assets/Moments.gif'); */
+    /* background: url('../../assets/metro.gif'); */
+    /* background: url('../../assets/ghost.gif'); */
     height: 100%;
+    background-position: center;
     background-size: cover;
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+.focusBody {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* justify-content: center; */
+    padding: 1.2rem;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.timer {
+    margin-left: auto;
+    font-size: 3rem;
+    color: #fff;
+}
+
+.quote {
+    margin-left: auto;
+    color: white;
+    font-size: 1.2rem;
+}
+
+
+.config {
+    position: absolute;
+    bottom: 10rem;
+    /* display: flex; */
+    /* align-items: end; */
+    width: 3.2rem;
+    height: 3.2rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: all 0.1s ease;
+    padding: 0.5rem;
+    border-radius: 1rem;
+}
+
+.config:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+}
+
+.configShow {
+    border-top-right-radius: unset;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-bottom-right-radius: unset;
+}
+
+.config img {
+    transition: all 0.3s ease;
+    width: 100%;
+    border-radius: 0.6rem;
+    box-sizing: unset;
+}
+
+.configuration {
+    position: fixed;
+    left: 4.4rem;
+    bottom: 4rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 23rem;
+    max-height: 30rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding:2rem 1rem;
+}
+.genres, .volume, .bgs {
+    width: 100%;
+    display: flex;
+}
+.genres, .bgs {
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 1.2rem 0;
+}
+.genre, .bg {
+    width: 4.7rem;
+    height: 4.7rem;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+
+    font-size: 0.7rem;
+    letter-spacing: 0.1rem;
+    color: #786e6e;
+    cursor: pointer;
+}
+.genre>svg, .bgs>svg {
+    width:57%;
+    height:57%;
+    fill: #786e6e;
+}
+.volume {
+    justify-content: center;
+}
+.volume input{
+    width: 80%;
 }
