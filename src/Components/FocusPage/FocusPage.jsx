@@ -7,7 +7,6 @@ const FocusPage = ({ hrs, mins, secs, setShowModal, setShowStart }) => {
   return (
     <div className={focusCss.focusDiv}>
       <Navbar focus={true} setShowModal={setShowModal} setShowStart={setShowStart} />
-      {hrs} : {mins} : {secs}
       <Footer focus={true}/>
     </div>
   )

@@ -19,7 +19,7 @@
     margin-left: auto;
 } 
 
-button {
+.player>button {
     background: transparent;
     border: none;
 }

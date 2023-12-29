@@ -8,7 +8,7 @@ import pause from '../../assets/pause.svg'
 
 const Footer = ({ focus }) => {
 
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
 
   function handlePlay() {
     setIsPlaying(prev => !prev)
