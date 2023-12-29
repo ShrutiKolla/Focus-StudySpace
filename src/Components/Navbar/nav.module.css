@@ -1,4 +1,5 @@
 .nav-bar {
+    color: black;
     display: flex;
     height: 50px;
     align-items: center;

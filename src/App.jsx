@@ -5,23 +5,21 @@ import Task from "./Components/Tasks/Task";
 const App = () => {
 
   const data = [{
-    title: "natural language processing",
-    hrs: "1",
+    task: "natural language processing",
+    hrs: "",
     mins: "23",
     secs: "10"
   },
   {
-    title: "database management system",
+    task: "database management system",
     hrs: "1",
     mins: "23",
     secs: "10"
   }]
-  const [tasks, setTasks] = useState([])
+  const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")) || [])
   const [newTask, setNewTask] = useState({ task: '', hrs: 0, mins: 0, secs: 0 })
   const inpRef = useRef()
 
-  console.log(newTask);
-  console.log(tasks);
   const taskElements = tasks.map((task, key) => {
     return <Task key={key}
       id={key}
@@ -29,6 +27,7 @@ const App = () => {
       hrs={task.hrs}
       mins={task.mins}
       secs={task.secs}
+      deleteTask={deleteTask}
     />
   })
 
@@ -46,15 +45,25 @@ const App = () => {
   }
 
   function handleSave() {
-    setTasks(prev => {
-      const curr = [...prev];
-      curr.unshift(newTask);
-      return curr;
-    });
+    let currTasks = [];
+    if (localStorage.getItem("tasks")) {
+      currTasks = JSON.parse(localStorage.getItem("tasks"));
+    }
+    currTasks.unshift(newTask);
+    localStorage.setItem("tasks", JSON.stringify(currTasks));
+    setTasks(currTasks)
     setNewTask({ task: '', hrs: 0, mins: 0, secs: 0 });
     inpRef.current.style.display = 'none'
   }
 
+  function deleteTask(id) {
+    setTasks(prev => {
+      let currTasks = [...prev]
+      currTasks.splice(id, 1);
+      localStorage.setItem("tasks", JSON.stringify(currTasks));
+      return currTasks
+    })
+  }
   return (
     <div className="fullPage">
       <header>

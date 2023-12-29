@@ -16,17 +16,19 @@
     transition: text-shadow 0.3s ease;
 }
 .id {
-    width: 2rem;
-    height: 2rem;
+    padding: 0.72rem 1rem;
     border: 2px solid #af7e8f;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0px 0px 10px 1px #af7e8f;
     transition: box-shadow 0.3s ease;
-    border-radius: 4rem;
+    border-radius: 6rem;
+    cursor: pointer;
 }
-
+.start {
+    width: 3.5rem;
+}
 .delete {
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -49,4 +51,13 @@
 
 .single_task:hover .id {
     box-shadow: 0px 0px 30px 1px #af7e8f;
+}
+
+.myModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
 }
