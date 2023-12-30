@@ -10,6 +10,7 @@
     display: flex;
     align-items: center;
     gap: 8%;
+    margin-right: auto;
     width: 100%;
 }
 .single_task .name {
@@ -29,7 +30,7 @@
 .start {
     width: 3.5rem;
 }
-.delete {
+.delete, .menu {
     opacity: 0;
     transition: opacity 0.3s ease;
     height: 30%;
@@ -41,11 +42,22 @@
     height: 100%;
 }
 
+.menu {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.menu img {
+    height: 26%;
+}
 .single_task:hover .name {
     text-shadow: 0px 0px 30px #f8f6f7;
 }
 
 .single_task:hover .delete {
+    opacity: 1;
+}
+.single_task:hover .menu {
     opacity: 1;
 }
 

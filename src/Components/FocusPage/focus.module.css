@@ -7,7 +7,7 @@
     /* background: url('../../assets/rainy-road.gif'); */
     /* background: url('../../assets/street.gif'); */
     /* background: url('../../assets/rain.gif'); */
-    
+
     /* background: url('../../assets/sakura.gif'); */
     /* background: url('../../assets/mushroom.gif'); */
     background: url('../../assets/Moments.gif');
@@ -88,18 +88,27 @@
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
-    padding:2rem 1rem;
+    padding: 2rem 1rem;
 }
-.genres, .volume, .bgs {
+
+.genres,
+.volume,
+.bgs {
     width: 100%;
     display: flex;
 }
-.genres, .bgs {
+
+.genres,
+.bgs {
     justify-content: space-evenly;
     align-items: center;
     padding: 1.2rem 0;
 }
-.genre, .bg, .genSelected,.bgSelected {
+
+.genre,
+.bg,
+.genSelected,
+.bgSelected {
     width: 4.7rem;
     height: 4.7rem;
     background: rgba(0, 0, 0, 0.6);
@@ -115,20 +124,50 @@
     color: #786e6e;
     cursor: pointer;
 }
-.genre>svg, .bg>svg, .genSelected>svg, .bgSelected>svg {
-    width:57%;
-    height:57%;
+
+.genre>svg,
+.bg>svg,
+.genSelected>svg,
+.bgSelected>svg {
+    width: 57%;
+    height: 57%;
 }
-.genre>svg,.bg>svg {
+
+.genre>svg,
+.bg>svg {
     fill: #786e6e;
 }
-.genSelected>svg, .genSelected, .bgSelected>svg, .bgSelected {
-    fill:#dbcbcb;
+
+.genSelected>svg,
+.genSelected,
+.bgSelected>svg,
+.bgSelected {
+    fill: #dbcbcb;
     color: #dbcbcb;
 }
-.volume {
+
+.volumeDiv {
     justify-content: center;
-}
-.volume input{
     width: 80%;
+}
+
+.volume {
+    width: 100%;
+    -webkit-appearance: none;
+    margin-right: 15px;
+    height: 4px;
+    border-radius: 5px;
+    background-image: linear-gradient(#f53192, #f53192);
+    background-repeat: no-repeat;
+}
+
+.volume::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 2rem;
+    border: none;
+    background: #f53192;
+    cursor: pointer;
+    transition: background .3s ease-in-out;
 }

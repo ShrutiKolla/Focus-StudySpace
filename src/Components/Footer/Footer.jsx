@@ -7,10 +7,9 @@ import next from '../../assets/next.svg'
 import pause from '../../assets/pause.svg'
 import musicDb from './musicDb.json'
 
-const Footer = ({ focus, genre, setGenre, song, setSong, changeSong }) => {
+const Footer = ({ focus, genre, setGenre, song, setSong, changeSong, volRef, audioRef,initialize }) => {
 
   const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef();
 
   useEffect(() => {
     if (genre !== undefined && song !== undefined) {
@@ -22,6 +21,7 @@ const Footer = ({ focus, genre, setGenre, song, setSong, changeSong }) => {
       }
     }
   }, [genre, song]);
+
 
   function handlePlay() {
     setIsPlaying(prev => {
@@ -37,14 +37,19 @@ const Footer = ({ focus, genre, setGenre, song, setSong, changeSong }) => {
       }
       {focus &&
         <div className={footerCss.player}>
-          <audio autoPlay ref={audioRef} src={musicDb[genre][song].url}></audio>
-          <button className={footerCss.prev} onClick={() => {changeSong(-1); audioRef.current.play()}}><img src={prev} alt="" /></button>
+          <audio
+            onEnded={() => audioRef.current.play()} autoPlay
+            ref={audioRef}
+            onLoadedMetadata={initialize}
+            src={musicDb[genre][song].url}
+          ></audio>
+          <button className={footerCss.prev} onClick={() => { changeSong(-1); audioRef.current.play() }}><img src={prev} alt="" /></button>
           {!isPlaying ?
             <button onClick={handlePlay} className={footerCss.play}><img src={play} alt="" /></button>
             :
             <button onClick={handlePlay} className={footerCss.play}><img src={pause} alt="" /></button>
           }
-          <button className={footerCss.next} onClick={() => {changeSong(1); audioRef.current.play()}}><img src={next} alt="" /></button>
+          <button className={footerCss.next} onClick={() => { changeSong(1); audioRef.current.play() }}><img src={next} alt="" /></button>
         </div>
       }
       <p className={footerCss.author}>Made By: Shruti Kolla</p>
