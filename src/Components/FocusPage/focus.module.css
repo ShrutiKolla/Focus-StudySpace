@@ -9,13 +9,13 @@
     /* background: url('../../assets/rain.gif'); */
     
     /* background: url('../../assets/sakura.gif'); */
-    background: url('../../assets/mushroom.gif');
-    /* background: url('../../assets/Moments.gif'); */
+    /* background: url('../../assets/mushroom.gif'); */
+    background: url('../../assets/Moments.gif');
     /* background: url('../../assets/metro.gif'); */
     /* background: url('../../assets/ghost.gif'); */
     height: 100%;
-    background-position: center;
-    background-size: cover;
+    /* background-position: center; */
+    /* background-size: cover; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -99,7 +99,7 @@
     align-items: center;
     padding: 1.2rem 0;
 }
-.genre, .bg {
+.genre, .bg, .genSelected,.bgSelected {
     width: 4.7rem;
     height: 4.7rem;
     background: rgba(0, 0, 0, 0.6);
@@ -115,10 +115,16 @@
     color: #786e6e;
     cursor: pointer;
 }
-.genre>svg, .bgs>svg {
+.genre>svg, .bg>svg, .genSelected>svg, .bgSelected>svg {
     width:57%;
     height:57%;
+}
+.genre>svg,.bg>svg {
     fill: #786e6e;
+}
+.genSelected>svg, .genSelected, .bgSelected>svg, .bgSelected {
+    fill:#dbcbcb;
+    color: #dbcbcb;
 }
 .volume {
     justify-content: center;

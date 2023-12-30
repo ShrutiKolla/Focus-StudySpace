@@ -1,0 +1,106 @@
+[
+    [
+        {
+            "url": "assets/music/chill/bedtime-after-a-coffee.mp3",
+            "name": "Bedtime after a coffee"
+        },
+        {
+            "url": "assets/music/chill/ColorfulFlowers.mp3",
+            "name": "Colorful Flowers"
+        },
+        {
+            "url": "assets/music/chill/Cozy-Place.mp3",
+            "name": "Cozy Place"
+        },
+        {
+            "url": "assets/music/chill/Missing-You.mp3",
+            "name": "Missing You"
+        },
+        {
+            "url": "assets/music/chill/Sweet.mp3",
+            "name": "Sweet"
+        },
+        {
+            "url": "assets/music/chill/When-I-Was-A-Boy.mp3",
+            "name": "When I was a boy"
+        }
+    ],
+    [
+        {
+            "url": "assets/music/ambient/Celestia.mp3",
+            "name": "Celestia"
+        },
+        {
+            "url": "assets/music/ambient/CrescentMoon.mp3",
+            "name": "Crescent Moon"
+        },
+        {
+            "url": "assets/music/ambient/EveningImprovisation.mp3",
+            "name": "Evening Improv"
+        },
+        {
+            "url": "assets/music/ambient/Otjanbird.mp3",
+            "name": "Otjanbird"
+        },
+        {
+            "url": "assets/music/ambient/PurpleDream.mp3",
+            "name": "Purple Dream"
+        },
+        {
+            "url": "assets/music/ambient/stormClouds.mp3",
+            "name": "Storm Clouds"
+        }
+    ],
+    [
+        {
+            "url": "assets/music/jazz/Cooking.mp3",
+            "name": "Cooking"
+        },
+        {
+            "url": "assets/music/jazz/George-Street.mp3",
+            "name": "George Street"
+        },
+        {
+            "url": "assets/music/jazz/Lobby-Time.mp3",
+            "name": "Lobby Time"
+        },
+        {
+            "url": "assets/music/jazz/Morning-Station.mp3",
+            "name": "Morning Station"
+        },
+        {
+            "url": "assets/music/jazz/stardust.mp3",
+            "name": "Stardust"
+        },
+        {
+            "url": "assets/music/jazz/Way-Home.mp3",
+            "name": "Way Home"
+        }
+    ],
+    [
+        {
+            "url": "assets/music/lofi/Bedhead.mp3",
+            "name": "Bedhead"
+        },
+        {
+            "url": "assets/music/lofi/floating-castle.mp3",
+            "name": "Floating Castle"
+        },
+        {
+            "url": "assets/music/lofi/Fresh.mp3",
+            "name": "Fresh"
+        },
+        {
+            "url": "assets/music/lofi/Kugelblitz.mp3",
+            "name": "Kugelblitz"
+        },
+        {
+            "url": "assets/music/lofi/Lost-and-Found.mp3",
+            "name": "Lost and Found"
+        },
+        {
+            "url": "assets/music/lofi/Sleepless.mp3",
+            "name": "Sleepless"
+        }
+    ]
+]
