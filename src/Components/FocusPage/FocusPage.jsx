@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import Navbar from '../Navbar/Navbar'
 import Footer from '../Footer/Footer'
+import Timer from '../Timer/Timer'
 import config from '../../assets/config.svg'
 import volume from '../../assets/volume.svg'
 
@@ -47,7 +48,6 @@ const FocusPage = ({ hrs, mins, secs, setShowModal, setShowStart }) => {
     }
   ]
 
-  console.log(volRef);
   function handleConfig() {
     setShowConfig(prev => !prev)
   }
@@ -56,8 +56,7 @@ const FocusPage = ({ hrs, mins, secs, setShowModal, setShowStart }) => {
     dir === 1 ? setSong(curr => (curr + 1) % n) : setSong(curr => (curr - 1 + n) % n)
   }
   function initialize() {
-    console.log(audioRef.current.volume);
-    console.log(window.document.querySelector('#volume'));
+    audioRef.current.volume = 0.7;    
   }
   function handleVol(e) {
     audioRef.current.volume = e.target.value / 100;
@@ -78,9 +77,10 @@ const FocusPage = ({ hrs, mins, secs, setShowModal, setShowStart }) => {
 
         <p className={focusCss.quote}>You don't have to be great to start, but you have to start to be great</p>
         <p className={focusCss.timer}>
-          {Math.trunc(hrs / 10)}{hrs % 10}:
+          <Timer hrs={hrs} mins={mins} secs={secs}/>
+          {/* {Math.trunc(hrs / 10)}{hrs % 10}:
           {Math.trunc(mins / 10)}{mins % 10}:
-          {Math.trunc(secs / 10)}{secs % 10}
+          {Math.trunc(secs / 10)}{secs % 10} */}
         </p>
 
         <div className={`${focusCss.config} ${showConfig && focusCss.configShow}`} onClick={handleConfig}>
