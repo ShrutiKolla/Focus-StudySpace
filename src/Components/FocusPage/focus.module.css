@@ -147,17 +147,22 @@
 }
 
 .volumeDiv {
-    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     width: 80%;
-}
 
+}
+.volumeDiv img {
+    width: 10%;
+}
 .volume {
     width: 100%;
     -webkit-appearance: none;
     margin-right: 15px;
     height: 4px;
     border-radius: 5px;
-    background-image: linear-gradient(#f53192, #f53192);
+    background-image: linear-gradient(#af7e8f, #af7e8f);
     background-repeat: no-repeat;
     background-size: 50;
 }
@@ -168,7 +173,7 @@
     width: 1rem;
     border-radius: 2rem;
     border: none;
-    background: #f53192;
+    background: #af7e8f;
     cursor: pointer;
     transition: background .3s ease-in-out;
 }

@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from 'react'
 import Navbar from '../Navbar/Navbar'
 import Footer from '../Footer/Footer'
 import config from '../../assets/config.svg'
+import volume from '../../assets/volume.svg'
+
 import musicDb from '../Footer/musicDb.json'
 
 import focusCss from './focus.module.css'
@@ -208,11 +210,11 @@ const FocusPage = ({ hrs, mins, secs, setShowModal, setShowStart }) => {
 
             <div className={focusCss.volumeDiv}
             >
+              <img src={volume} alt="" />
               <input
                 style={{ backgroundSize: `${50}% 100%` }}
                 id="volume"
                 onChange={(e) => handleVol(e)} ref={volRef}
-                // value={volRef.current}
                 className={focusCss.volume} type="range" />
             </div>
 
