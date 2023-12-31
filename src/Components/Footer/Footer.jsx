@@ -7,7 +7,7 @@ import next from '../../assets/next.svg'
 import pause from '../../assets/pause.svg'
 import musicDb from './musicDb.json'
 
-const Footer = ({ focus, genre, setGenre, song, setSong, changeSong, volRef, audioRef,initialize }) => {
+const Footer = ({ focus, genre, setGenre, song, setSong, changeSong, volRef, audioRef, initialize }) => {
 
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -40,7 +40,7 @@ const Footer = ({ focus, genre, setGenre, song, setSong, changeSong, volRef, aud
           <audio
             onEnded={() => audioRef.current.play()} autoPlay
             ref={audioRef}
-            onLoadedMetadata={initialize}
+            onLoadedMetadata={() => initialize()}
             src={musicDb[genre][song].url}
           ></audio>
           <button className={footerCss.prev} onClick={() => { changeSong(-1); audioRef.current.play() }}><img src={prev} alt="" /></button>
