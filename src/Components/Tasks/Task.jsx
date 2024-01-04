@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import cross from '../../assets/cross.svg'
 import dot from '../../assets/dot.svg'
-import TaskPage from '../FocusPage/FocusPage'
+import FocusPage from '../FocusPage/FocusPage'
 
 import taskCss from './task.module.css'
 
@@ -32,7 +32,7 @@ const Task = ({ task, id, hrs, mins, secs, deleteTask }) => {
                 <p className={taskCss.name}>{task}</p>
             </div>
             <div className={taskCss.delete} onClick={() => deleteTask(id)} ><img src={cross} alt="" /></div>
-            {showModal && <div className={`${taskCss.myModal} ${showStart ? taskCss.start : taskCss.id}`}><TaskPage
+            {showModal && <div className={`${taskCss.myModal} ${showStart ? taskCss.start : taskCss.id}`}><FocusPage
                 hrs={hrs}
                 mins={mins}
                 secs={secs}

@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-const Timer = ({ hrs, mins, secs }) => {
+const Timer = ({ hrs, mins, secs, handleComplete }) => {
 
     const [timerVal, setTimerVal] = useState({
         hrs: hrs,
@@ -19,6 +19,7 @@ const Timer = ({ hrs, mins, secs }) => {
             if (timeDiff <= 0) {
                 clearInterval(intervalId);
                 setTimerVal({ hrs: 0, mins: 0, secs: 0 });
+                handleComplete();
             } else {
                 const hours = Math.floor(timeDiff / 3600000);
                 const minutes = Math.floor((timeDiff % 3600000) / 60000);

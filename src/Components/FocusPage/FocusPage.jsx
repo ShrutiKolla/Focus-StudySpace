@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import Navbar from '../Navbar/Navbar'
 import Footer from '../Footer/Footer'
 import Timer from '../Timer/Timer'
+import CompleteNotif from '../CompleteNotif/CompleteNotif'
 import config from '../../assets/config.svg'
 import volume from '../../assets/volume.svg'
 
@@ -14,10 +15,13 @@ const FocusPage = ({ hrs, mins, secs, setShowModal, setShowStart }) => {
   const [showConfig, setShowConfig] = useState(false)
   const [genre, setGenre] = useState(0);
   const [song, setSong] = useState(0)
+  const [isPlaying, setIsPlaying] = useState(false);
   const [bg, setBg] = useState(0);
+  const [complete, setComplete] = useState(false);
   const volRef = useRef('')
   const audioRef = useRef()
 
+  console.log(isPlaying);
   useEffect(() => {
     if (showConfig) {
       volRef.current.value = audioRef.current.volume * 100
@@ -51,18 +55,32 @@ const FocusPage = ({ hrs, mins, secs, setShowModal, setShowStart }) => {
   function handleConfig() {
     setShowConfig(prev => !prev)
   }
+  function handleComplete() {
+    if (isPlaying) handlePlay()
+    setComplete(true)
+  }
   function changeSong(dir) {
     const n = musicDb[genre].length;
     dir === 1 ? setSong(curr => (curr + 1) % n) : setSong(curr => (curr - 1 + n) % n)
   }
+
+  function handlePlay() {
+    setIsPlaying(prev => {
+      prev ? audioRef.current.pause() : audioRef.current.play();
+      console.log(audioRef.current.src);
+      return !prev;
+    })
+  }
   function initialize() {
-    audioRef.current.volume = 0.7;    
+    audioRef.current.volume = 0.7;
+    audioRef.current.pause()
   }
   function handleVol(e) {
     audioRef.current.volume = e.target.value / 100;
     e.target.style.backgroundSize = `${e.target.value}% 100%`
     console.log(e.target.style.backgroundSize);
   }
+
   return (
     <div className={focusCss.focusDiv}
       style={{
@@ -77,10 +95,7 @@ const FocusPage = ({ hrs, mins, secs, setShowModal, setShowStart }) => {
 
         <p className={focusCss.quote}>You don't have to be great to start, but you have to start to be great</p>
         <p className={focusCss.timer}>
-          <Timer hrs={hrs} mins={mins} secs={secs}/>
-          {/* {Math.trunc(hrs / 10)}{hrs % 10}:
-          {Math.trunc(mins / 10)}{mins % 10}:
-          {Math.trunc(secs / 10)}{secs % 10} */}
+          <Timer hrs={hrs} mins={mins} handleComplete={handleComplete} secs={secs} />
         </p>
 
         <div className={`${focusCss.config} ${showConfig && focusCss.configShow}`} onClick={handleConfig}>
@@ -310,7 +325,8 @@ const FocusPage = ({ hrs, mins, secs, setShowModal, setShowStart }) => {
         }
       </div>
 
-      <Footer focus={true} genre={genre} setGenre={setGenre} song={song} setSong={setSong} changeSong={changeSong} audioRef={audioRef} volRef={volRef} initialize={initialize} />
+      <Footer focus={true} genre={genre} setGenre={setGenre} song={song} setSong={setSong} changeSong={changeSong} audioRef={audioRef} isPlaying={isPlaying} handlePlay={handlePlay} volRef={volRef} initialize={initialize} />
+      {complete && <CompleteNotif setShowModal={setShowModal} />}
     </div >
   )
 }
