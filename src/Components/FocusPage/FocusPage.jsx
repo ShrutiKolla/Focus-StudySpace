@@ -18,17 +18,17 @@ const FocusPage = ({ hrs, mins, secs, setShowModal, setShowStart }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [bg, setBg] = useState(0);
   const [complete, setComplete] = useState(false);
+  const [resetKey, setResetKey] = useState(0);
   const volRef = useRef('')
   const audioRef = useRef()
 
-  console.log(isPlaying);
   useEffect(() => {
     if (showConfig) {
       volRef.current.value = audioRef.current.volume * 100
       volRef.current.style.backgroundSize = `${audioRef.current.volume * 100}% 100%`
-      console.log(volRef.current);
     }
   }, [showConfig])
+
   const bgs = [
     {
       backgroundImage: `url(assets/metro.gif)`,
@@ -67,7 +67,6 @@ const FocusPage = ({ hrs, mins, secs, setShowModal, setShowStart }) => {
   function handlePlay() {
     setIsPlaying(prev => {
       prev ? audioRef.current.pause() : audioRef.current.play();
-      console.log(audioRef.current.src);
       return !prev;
     })
   }
@@ -78,9 +77,11 @@ const FocusPage = ({ hrs, mins, secs, setShowModal, setShowStart }) => {
   function handleVol(e) {
     audioRef.current.volume = e.target.value / 100;
     e.target.style.backgroundSize = `${e.target.value}% 100%`
-    console.log(e.target.style.backgroundSize);
   }
 
+  function resetTimer() {
+    setResetKey(prev => prev + 1);
+  }
   return (
     <div className={focusCss.focusDiv}
       style={{
@@ -95,7 +96,7 @@ const FocusPage = ({ hrs, mins, secs, setShowModal, setShowStart }) => {
 
         <p className={focusCss.quote}>You don't have to be great to start, but you have to start to be great</p>
         <p className={focusCss.timer}>
-          <Timer hrs={hrs} mins={mins} handleComplete={handleComplete} secs={secs} />
+          <Timer key={resetKey} hrs={hrs} mins={mins} handleComplete={handleComplete} secs={secs} />
         </p>
 
         <div className={`${focusCss.config} ${showConfig && focusCss.configShow}`} onClick={handleConfig}>
@@ -326,7 +327,7 @@ const FocusPage = ({ hrs, mins, secs, setShowModal, setShowStart }) => {
       </div>
 
       <Footer focus={true} genre={genre} setGenre={setGenre} song={song} setSong={setSong} changeSong={changeSong} audioRef={audioRef} isPlaying={isPlaying} handlePlay={handlePlay} volRef={volRef} initialize={initialize} />
-      {complete && <CompleteNotif setShowModal={setShowModal} />}
+      {complete && <CompleteNotif resetTimer ={resetTimer} setComplete={setComplete} setShowModal={setShowModal} setShowStart={setShowStart}/>}
     </div >
   )
 }

@@ -1,14 +1,20 @@
 import React from 'react'
 
+import neko from '../../assets/neko.svg'
 import NotifCss from './complete.module.css'
 
-const CompleteNotif = () => {
+const CompleteNotif = ({ resetTimer, setComplete, setShowModal, setShowStart }) => {
     return (
         <div className={NotifCss.notifDiv}>
             <div className={NotifCss.notifBody}>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus nesciunt iure mollitia tempora neque sapiente molestiae architecto hic delectus doloremque.</p>
-                <button className={NotifCss.btn}>Leave the timer</button>
-                <button className={NotifCss.btn}>Continue</button>
+                <div className={NotifCss.content}>
+                    <img className={NotifCss} src={neko} alt="" />
+                    <p>Great job completing your task...</p>
+                </div>
+                <div className={NotifCss.btns}>
+                    <button className={NotifCss.btn} onClick={() => { setShowModal(false); setShowStart(false) }}>Leave the timer</button>
+                    <button className={NotifCss.btn} onClick={() => { resetTimer(); setComplete(false) }}>Start Again</button>
+                </div>
             </div>
         </div>
     )

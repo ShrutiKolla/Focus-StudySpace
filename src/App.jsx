@@ -21,7 +21,7 @@ const App = () => {
   })
 
   function handleAdd() {
-    inpRef.current.style.display = 'block'
+    inpRef.current.style.display = 'flex'
   }
 
   function handleChange(e) {
@@ -45,6 +45,10 @@ const App = () => {
     inpRef.current.style.display = 'none'
   }
 
+  function handleBack() {
+    inpRef.current.style.display = 'none'
+  }
+
   function deleteTask(id) {
     setTasks(prev => {
       let currTasks = [...prev]
@@ -61,34 +65,48 @@ const App = () => {
       <main>
         <Clock />
         <div className="tasks">
-          <div className="addForm" ref={inpRef}>
-            <input type="text" placeholder="task" name="task" onChange={handleChange} value={newTask.task} />
-            <div className="input">
-              <input className="number-input" type="number" max="24" min="0" name="hrs" onChange={handleChange} value={newTask.hrs} />
-              <span>hour</span>
-              <input className="number-input" type="number" max="60" min="0" name="mins" onChange={handleChange} value={newTask.mins} />
-              <span>min</span>
-              <input className="number-input" type="number" max="60" min="0" name="secs" onChange={handleChange} value={newTask.secs} />
-              <span>sec</span>
-            </div>
-            <button onClick={handleSave}>Save</button>
-          </div>
           <div className="head">Your Tasks</div>
-          {taskElements.length > 0 ?
-            <>
-              <button className="add" onClick={handleAdd}>+</button>
-              {taskElements}
-            </>
-            :
-            <div>
-              <p>No items to show</p>
-              <button className="add" onClick={handleAdd}>+</button>
+          <div className="upperDiv">
+            <button className="add" onClick={handleAdd}>+</button>
+            <div className="addForm" ref={inpRef}>
+              <input className="taskInp" type="text" placeholder="ENTER YOUR TASK TITLE" name="task" onChange={handleChange} value={newTask.task} />
+              <div className="inputDiv">
+                <section className="input">
+                  <input className="numberInput" type="number" max="24" min="0" name="hrs" onChange={handleChange} value={newTask.hrs} />
+                  <span>HOURS</span>
+                </section>
+                <section className="input">
+                  <input className="numberInput" type="number" max="60" min="0" name="mins" onChange={handleChange} value={newTask.mins} />
+                  <span>MINS</span>
+                </section>
+                <section className="input">
+                  <input className="numberInput" type="number" max="60" min="0" name="secs" onChange={handleChange} value={newTask.secs} />
+                  <span>SECS</span>
+                </section>
+              </div>
+              <div className="btns">
+                <button onClick={handleSave}>Save</button>
+                <button onClick={handleBack}>Back</button>
+              </div>
+              <hr />
             </div>
-          }
+          </div>
+          <div className="lowerDiv">
+            {taskElements.length > 0 ?
+              <>
+                {taskElements}
+              </>
+              :
+              <div>
+                <p>No items to show</p>
+              </div>
+            }
+
+          </div>
         </div>
       </main>
       <footer>
-        <Footer/>
+        <Footer />
       </footer>
     </div>
   )
