@@ -7,10 +7,35 @@ import next from '../../assets/next.svg'
 import pause from '../../assets/pause.svg'
 import musicDb from './musicDb.json'
 
-const Footer = ({ focus, genre, setGenre, song, setSong, changeSong, volRef, audioRef, isPlaying, handlePlay, initialize }) => {
+const Footer = ({ focus, genre, setGenre, audioRef, song, setSong, changeSong, volRef, initialize }) => {
 
+  const [isPlaying, setIsPlaying] = useState(false);
 
+  useEffect(() => {
+    if (genre !== undefined && song !== undefined) {
+      audioRef.current.src = musicDb[genre][song].url;
+      if (isPlaying) {
+        audioRef.current.play();
+      } else {
+        audioRef.current.pause();
+      }
+    }
+  }, [genre, song]);
+
+  function handlePlay(val) {
+    if (val == 1) {
+      setIsPlaying(prev => {
+        prev ? audioRef.current.pause() : audioRef.current.play();
+        return !prev;
+      })
+    } else if (val == 2) {
+      setIsPlaying(true)
+    } else {
+      setIsPlaying(false)
+    }
+  }
   return (
+
     <div className={footerCss.footerDiv}>
       {focus &&
         <p>Song name : {musicDb[genre][song].name}</p>
@@ -18,6 +43,8 @@ const Footer = ({ focus, genre, setGenre, song, setSong, changeSong, volRef, aud
       {focus &&
         <div className={footerCss.player}>
           <audio
+            onPlay={() => handlePlay(2)}
+            onPause={() => handlePlay(3)}
             onEnded={() => audioRef.current.play()} autoPlay
             ref={audioRef}
             onLoadedMetadata={() => initialize()}
@@ -25,11 +52,15 @@ const Footer = ({ focus, genre, setGenre, song, setSong, changeSong, volRef, aud
           ></audio>
           <button className={footerCss.prev} onClick={() => { changeSong(-1); audioRef.current.play() }}><img src={prev} alt="" /></button>
           {!isPlaying ?
-            <button onClick={() => {console.log('clicked on play')
-          handlePlay()}} className={footerCss.play}><img src={play} alt="" /></button>
+            <button onClick={() => {
+              console.log('clicked on play')
+              handlePlay(1)
+            }} className={footerCss.play}><img src={play} alt="" /></button>
             :
-            <button onClick={() =>{console.log('clicked on pause')
-          handlePlay()}} className={footerCss.play}><img src={pause} alt="" /></button>
+            <button onClick={() => {
+              console.log('clicked on pause')
+              handlePlay(1)
+            }} className={footerCss.play}><img src={pause} alt="" /></button>
           }
           <button className={footerCss.next} onClick={() => { changeSong(1); audioRef.current.play() }}><img src={next} alt="" /></button>
         </div>

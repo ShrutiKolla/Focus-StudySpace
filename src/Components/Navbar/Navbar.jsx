@@ -7,7 +7,7 @@ const Navbar = ({ focus, setShowModal, setShowStart }) => {
     <nav className={`${navCss['nav-bar']}`}>
       <ul className={`${navCss['nav-bar__list']}`}>
         <li className={navCss.left}>Focus</li>
-        <li className={navCss.right}>Github</li>
+        <li className={navCss.right}><a href="https://github.com/ShrutiKolla/Focus-StudySpace" target='blank'>Github</a></li>
         {focus &&
           <img className={navCss.cross} src={close} onClick={() => { setShowModal(false); setShowStart(false) }} alt="" />
         }
